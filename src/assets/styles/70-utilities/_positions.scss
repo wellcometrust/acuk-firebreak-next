@@ -1,0 +1,56 @@
+// ==========================================================================
+// UTILITIES / POSITIONS
+// ==========================================================================
+
+$u-positions: (
+  static: -s,
+  relative: -r,
+  fixed: -f,
+  absolute: -a
+);
+
+@each $position, $shortPosition in $u-positions {
+  .u-pos#{$shortPosition} {
+    position: $position !important;
+  }
+}
+
+.u-pos-a\@sm {
+  @include mq(sm) {
+    position: absolute;
+  }
+}
+
+// .u-pos-tl {
+//   top: 0;
+//   left: 0;
+// }
+
+// .u-pos-tr {
+//   top: 0;
+//   right: 0;
+// }
+
+// .u-pos-br {
+//   bottom: 0;
+//   right: 0;
+// }
+
+.u-pos-bl {
+  bottom: 0;
+  left: 0;
+}
+
+.u-pos-b {
+  bottom: 0;
+}
+
+.u-pos-cover {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// middle-right
+

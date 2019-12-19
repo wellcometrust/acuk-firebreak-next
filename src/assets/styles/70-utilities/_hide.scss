@@ -1,0 +1,35 @@
+.u-hide-visually {
+  @include hide-visually();
+
+  @each $alias, $value in $mq-breakpoints {
+    &\@#{$alias} {
+      @include mq($alias) {
+        @include hide-visually();
+      }
+    }
+
+    &-until\@#{$alias} {
+      @include mq($until: $alias) {
+        @include hide-visually();
+      }
+    }
+  }
+}
+
+.u-hide-completely {
+  @include hide-completely();
+
+  @each $alias, $value in $mq-breakpoints {
+    &\@#{$alias} {
+      @include mq($alias) {
+        @include hide-completely();
+      }
+    }
+
+    &-until\@#{$alias} {
+      @include mq($until: $alias) {
+        @include hide-completely();
+      }
+    }
+  }
+}

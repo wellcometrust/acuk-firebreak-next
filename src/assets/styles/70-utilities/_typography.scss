@@ -1,0 +1,23 @@
+.u-fw-normal {
+  font-weight: $fw-normal;
+}
+
+.u-fw-bold {
+  font-weight: $fw-bold;
+}
+
+.u-fs-zero {
+  font-size: 0;
+}
+
+@for $i from 10 through 30 {
+  .u-fs-#{$i} {
+    @include font-size($i * 1px);
+  }
+}
+
+@each $alignment in (left, center, right) {
+  .u-ta-#{str_slice($alignment, 1, 1)} {
+    text-align: $alignment;
+  }
+}

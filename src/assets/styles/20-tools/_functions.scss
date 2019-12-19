@@ -1,0 +1,39 @@
+// $colors map reader
+// ===========================================
+
+// Function to get colour values instead of using nested `map-gets`.
+//
+// Usage:
+//
+//   .foo {
+//     color: color(<key>);
+//   }
+//
+@function color($key) {
+  @if map-has-key($colors, $key) {
+    @return map-get($colors, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $colors.";
+
+  @return null;
+}
+
+// Map deep get
+// @author Hugo Giraudel
+//
+// @param {Map} $map - Map
+// @param {Arglist} $keys - Key chain
+// @return {*} - Desired value
+//
+// Usage:
+//
+//    .foo {
+//      color: map-deep-get($map, 'key1', 'key2');
+//    }
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}

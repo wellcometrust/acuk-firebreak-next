@@ -1,0 +1,14 @@
+/* ==========================================================================
+   GENERIC / FONT-FACE
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Wellcome';
+  src: local('Wellcome Bold'),
+       local('Wellcome-Bold'),
+       url('/fonts/wellcome-bold-webfont.woff2') format('woff2'),
+       url('/fonts/wellcome-bold-webfont.woff')  format('woff');
+  font-weight: $fw-normal;
+  font-style: normal;
+  font-display: swap;
+}

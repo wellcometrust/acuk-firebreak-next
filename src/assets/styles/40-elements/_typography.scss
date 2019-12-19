@@ -1,0 +1,80 @@
+$heading-size-1: 32px;
+$heading-size-2: 26px;
+$heading-size-3: 18px;
+$heading-size-4: 16px;
+$heading-size-5: 13px;
+$heading-size-6: 13px;
+
+// Predefine the variables below in order to alter and enable specific features.
+$headings: (
+  h1: (
+    default: 30px,
+    md:      $heading-size-1
+  ),
+  h2: (
+    default: 24px,
+    md:      $heading-size-2
+  ),
+  h3: (
+    default: 19px,
+    md:      $heading-size-3
+  ),
+  h4: (
+    default: 16px,
+    md:      16px,
+    lg:      $heading-size-4
+  ),
+  h5: (
+    default: 14px,
+    md:      14px,
+    lg:      $heading-size-4
+  ),
+  h6: (
+    default: 12px,
+    md:      12px,
+    lg:      $heading-size-6
+  )
+);
+
+$header-weight: $fw-normal;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $header-weight;
+}
+
+h1 {
+  font-family: $secondary-font-family;
+}
+
+@each $heading, $headingSizes in $headings {
+  #{$heading},
+  %#{$heading},
+  .e-#{$heading}, {
+    @each $headingSizeName, $headingSizeValue in $headingSizes {
+      @if $headingSizeName == 'default' {
+        @include font-size($headingSizeValue, 1.6);
+      }
+
+      @else {
+        @include mq($headingSizeName) {
+          @include font-size($headingSizeValue, 1.6);
+        }
+      }
+    }
+  }
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: bold;
+}

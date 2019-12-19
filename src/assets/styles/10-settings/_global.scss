@@ -1,0 +1,22 @@
+// This is the default html and body font-size for the base rem value.
+$rem-base: 16px !default;
+
+$base-font-size: $rem-base;
+//$base-font-size-desktop: 18px;
+$base-line-height: 26px;
+
+$base-space: 16px;
+
+$base-transition-duration: 0.420s;
+$base-transition-timing-function: ease-out;
+
+$primary-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$secondary-font-family: 'Wellcome';
+
+$fw-normal: 400;
+$fw-bold: 400;
+
+$z-low: 1;
+$z-medium: 5;
+$z-high: 10;
+$z-header: 20;

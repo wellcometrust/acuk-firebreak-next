@@ -1,0 +1,13 @@
+.c-listing-item {}
+
+  .c-listing-item:not(:last-child) {
+    margin-bottom: $base-space;
+
+    @include mq(md) {
+      margin-bottom: $base-space--large;
+    }
+  }
+
+  .c-listing-item__excerpt {
+    margin-bottom: 0;
+  }

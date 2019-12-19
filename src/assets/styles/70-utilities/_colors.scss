@@ -1,0 +1,9 @@
+@each $colorKey, $colorValue in $colors {
+  .u-color-#{$colorKey} {
+    color: color($colorKey);
+  }
+
+  .u-bgcolor-#{$colorKey} {
+    background-color: color($colorKey);
+  }
+}

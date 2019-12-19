@@ -1,0 +1,11 @@
+$middle-coords: x y xy;
+
+$middle-positions: relative absolute;
+
+@each $middle-coord in $middle-coords {
+  @each $middle-position in $middle-positions {
+    .u-middle-#{$middle-coord}-#{str_slice($middle-position, 1, 1)} {
+      @include middle($middle-coord, $middle-position);
+    }
+  }
+}

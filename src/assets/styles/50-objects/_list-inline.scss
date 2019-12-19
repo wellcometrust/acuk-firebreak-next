@@ -1,0 +1,7 @@
+.o-list-inline {
+  @include cleanlist;
+}
+
+  .o-list-inline > * {
+    display: inline-block;
+  }

@@ -1,0 +1,21 @@
+.c-title-banner {
+  padding-top: $base-space--large;
+  padding-bottom: $base-space--large;
+}
+
+  .c-title-banner__title {
+    position: relative;
+    margin-bottom: $base-space;
+    padding-bottom: $base-space;
+    text-align: center;
+
+    &:after {
+      @include middle(x, absolute);
+
+      content: '';
+      bottom: 0;
+      height: 0.25rem;
+      width: 1.25rem;
+      background-color: #000;
+    }
+  }

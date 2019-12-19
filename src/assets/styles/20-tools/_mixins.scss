@@ -1,0 +1,147 @@
+// Clearfix
+// -----
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/**
+ * cleanlist
+ * override default ul list style
+ **/
+@mixin cleanlist {
+  margin-bottom: 0;
+  margin-left: 0;
+
+  > li {
+    list-style: none;
+  }
+}
+
+/**
+ * middle
+ * vertically or horizontally align content
+ **/
+@mixin middle($axis:'', $position:relative) {
+  position: $position;
+
+  @if $axis == y {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @else if $axis == x {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/**
+ * hocus
+ * mixin to combine :hover and :focus styles
+ **/
+@mixin hocus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+/**
+ * letter-spacing
+ * convert the value in photoshop to an `em` value
+ **/
+@mixin letter-spacing($photoshop-value) {
+  letter-spacing: ($photoshop-value / 1000) + em;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    @content;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+/**
+ * Removing elements from view and/or ATs
+ */
+
+/**
+ * Visually hide content, leaving it accessible to screenreaders and ATs.
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ **/
+@mixin hide-visually() {
+  // Hiding elements visually overrides any matching property declarations
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+/**
+ * Completely hide content both visually from the screen, and from screenreaders
+ * and ATs.
+ *
+ **/
+@mixin hide-completely() {
+  // Hiding elements completely overrides any matching property declarations
+  display: none !important;
+}
+
+/* Fill Height/Width */
+@mixin fill-parent {
+  height: 100%;
+  width: 100%;
+}
+
+/* Container */
+@mixin container() {
+  max-width: $container-size + $base-space * 2;
+  padding-right: $base-space;
+  padding-left: $base-space;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Auto-margins */
+@mixin margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Button reset */
+@mixin btn-reset {
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}

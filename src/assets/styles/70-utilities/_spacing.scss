@@ -1,0 +1,159 @@
+/* ==========================================================================
+   UTILITIES / SPACING
+   ========================================================================== */
+
+/**
+ * Utility classes to put specific spacing values onto elements. The below loop
+ * will generate us a suite of classes like:
+ *
+ *   .u-mar-t {}       margin-top: $base-space;
+ *   .u-pad-l-large {} padding-left: $base-space--large;
+ *   .u-mar-r-small {} margin-right: $base-space--small;
+ *   .u-pad {}         padding: $base-space;
+ *   .u-pad-v {}       padding-right: $base-space; padding-left: $base-space;
+ *   .u-mar-h {}       margin-top: $base-space; margin-bottom: $base-space;
+ */
+
+/* Spacing utilities will override any matching property declarations */
+
+$global-spacing-directions: (
+  null: null,
+  -top: -t,
+  -right: -r,
+  -bottom: -b,
+  -left: -l
+);
+
+$global-spacing-properties: (
+  padding: p,
+  margin: m
+);
+
+$global-spacing-sizes: (
+  null: $base-space,
+  -tiny: $base-space--tiny,
+  -small: $base-space--small,
+  -large: $base-space--large,
+  -huge: $base-space--huge,
+  -massive: $base-space--massive,
+) !default;
+
+@each $property, $shortproperty in $global-spacing-properties {
+  @each $direction, $shortdirection in $global-spacing-directions {
+    @each $size, $value in $global-spacing-sizes {
+      .u-#{$shortproperty}#{$shortdirection}#{$size} {
+        #{$property}#{$direction}: $value !important;
+      }
+
+      // @if ($property == margin) {
+      //   @if ($direction == -r) or ($direction == -l) {
+      //     .u-pull#{$shortdirection}#{$size} {
+      //       #{$property}#{$direction}: -$value !important;
+      //     }
+      //   }
+      // }
+    }
+
+    .u-#{$shortproperty}#{$shortdirection}-none {
+      #{$property}#{$direction}: 0 !important;
+    }
+  }
+
+  @each $size, $value in $global-spacing-sizes {
+  //   .u-#{$shortproperty}-v#{$size} {
+  //     #{$property}-right: $value !important;
+  //     #{$property}-left: $value !important;
+  //   }
+
+    @if ($shortproperty == mar) {
+      .u-pull-v#{$size} {
+        #{$property}-right: -$value !important;
+        #{$property}-left: -$value !important;
+      }
+    }
+
+    .u-#{$shortproperty}-h#{$size} {
+      #{$property}-top: $value !important;
+      #{$property}-bottom: $value !important;
+    }
+  }
+
+  // .u-#{$shortproperty}-v-none {
+  //   #{$property}-right: 0 !important;
+  //   #{$property}-left: 0 !important;
+  // }
+
+  // .u-#{$shortproperty}-h-none {
+  //   #{$property}-top: 0 !important;
+  //   #{$property}-bottom: 0 !important;
+  // }
+}
+
+@each $bp_name, $bp_value in $mq-breakpoints {
+  @include mq($bp_name) {
+    @each $property, $shortproperty in $global-spacing-properties {
+      @each $direction, $shortdirection in $global-spacing-directions {
+        @each $size, $value in $global-spacing-sizes {
+          .u-#{$shortproperty}#{$shortdirection}#{$size}\@#{$bp_name} {
+            #{$property}#{$direction}: $value !important;
+          }
+
+          // @if ($property == margin) {
+          //   @if ($direction == -r) or ($direction == -l) {
+          //     .u-pull#{$shortdirection}#{$size}\@#{$bp_name} {
+          //       #{$property}#{$direction}: -$value !important;
+          //     }
+          //   }
+          // }
+
+          .u-#{$shortproperty}#{$shortdirection}-none\@#{$bp_name} {
+            #{$property}#{$direction}: 0 !important;
+          }
+        }
+      }
+
+      @each $size, $value in $global-spacing-sizes {
+        .u-#{$shortproperty}-v#{$size}\@#{$bp_name} {
+          #{$property}-right: $value !important;
+          #{$property}-left: $value !important;
+        }
+
+      //   @if ($shortproperty == mar) {
+      //     .u-pull-v#{$size}\@#{$bp_name} {
+      //       #{$property}-right: -$value !important;
+      //       #{$property}-left: -$value !important;
+      //     }
+      //   }
+
+        .u-#{$shortproperty}-h#{$size}\@#{$bp_name} {
+          #{$property}-top: $value !important;
+          #{$property}-bottom: $value !important;
+        }
+      }
+
+      .u-#{$shortproperty}-v-none\@#{$bp_name} {
+        #{$property}-right: 0 !important;
+        #{$property}-left: 0 !important;
+      }
+
+      // .u-#{$shortproperty}-h-none\@#{$bp_name} {
+      //   #{$property}-top: 0 !important;
+      //   #{$property}-bottom: 0 !important;
+      // }
+    }
+  }
+}
+
+// @each $direction, $shortdirection in $global-spacing-directions {
+//   .u-mar#{$shortdirection}-auto {
+//     margin#{$direction}: auto;
+//   }
+// }
+
+.u-pad-b-100p {
+  padding-bottom: 100%;
+}
+
+.u-mar-auto {
+  @include margin-auto;
+}

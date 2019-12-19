@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var stripHTML = function stripHTML(htmlString) {\n  return htmlString.replace(/<[^>]*>?/gm, '');\n};","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "*": [
+        "components/*",
+        "/"
+      ]
+    },
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "strict": false,
+    "target": "esnext",
+    "declaration": true,
+    "outDir": "dist",
+    "typeRoots": [
+      "node_modules/@types",
+      "./typings.d.ts"
+    ],
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "module": "esnext",
+    "isolatedModules": true
+  },
+  "include": [
+    "./"
+  ],
+  "exclude": [
+    "coverage",
+    "dist",
+    "node_modules"
+  ]
+}

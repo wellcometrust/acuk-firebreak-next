@@ -1,0 +1,25 @@
+/* ==========================================================================
+   UTILITIES / IMAGES
+   ========================================================================== */
+
+/**
+ * Override the default `img` rules, and force the direct child image to be full width
+ */
+
+.u-img-full {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+  }
+}
+
+.u-img-splash {
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,15 @@
+$lineheights: 2 4 6 8;
+
+.u-lh-1 {
+  line-height: 1;
+}
+
+@each $lineheight in $lineheights {
+  .u-lh-1-#{$lineheight} {
+    line-height: ($lineheight / 10) + 1;
+  }
+}
+
+.u-lh-2 {
+  line-height: 2;
+}

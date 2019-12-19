@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nexport const ImageBannerView = ({\n  path,\n  alt\n}) => __jsx(\"figure\", {\n  className: \"c-image-banner\"\n}, __jsx(\"img\", {\n  src: `${process.env.ASSETS_URL}${path}`,\n  alt: alt\n}));\nexport default ImageBannerView;","map":null,"metadata":{},"sourceType":"module"}

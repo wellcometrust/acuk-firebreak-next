@@ -1,0 +1,19 @@
+$floats: left, right;
+
+.u-cf {
+  @include clearfix;
+}
+
+@each $direction in $floats {
+  .u-f#{str_slice($direction, 1, 1)} {
+    float: $direction;
+  }
+
+  @each $alias, $value in $mq-breakpoints {
+    .u-f#{str_slice($direction, 1, 1)}\@#{$alias} {
+      @include mq($alias) {
+        float: $direction;
+      }
+    }
+  }
+}
